@@ -1,0 +1,44 @@
+
+resource "equinix_network_device" "audrealabda" {
+  name                 = "audrealabda"
+  metro_code           = "DA"
+  type_code            = "C8000V"
+  self_managed         = true
+  byol                 = true
+  package_code         = "network-essentials"
+  notifications        = ["adanskin@equinix.com"]
+  hostname             = "audreaq4"
+  account_number       = 1
+  version              = "17.09.04a"
+  core_count           = 2
+  term_length          = 1
+  additional_bandwidth = 5
+  acl_template_id      = "equinix_network_acl_template.audreanewacl.id"
+
+  ssh_key {
+    username = "audrea"
+    key_name = "audreapublickey"
+  }
+}
+
+resource "equinix_network_device" "audrealabdc" {
+  name                 = "audrealabdc"
+  metro_code           = "DC"
+  type_code            = "C8000V"
+  self_managed         = true
+  byol                 = true
+  package_code         = "network-essentials"
+  notifications        = ["adanskin@equinix.com"]
+  hostname             = "audreaq4dc"
+  account_number       = 1
+  version              = "17.09.04a"
+  core_count           = 2
+  term_length          = 1
+  additional_bandwidth = 5
+  acl_template_id      = "equinix_network_acl_template.audreanewacl.id"
+
+  ssh_key {
+    username = "audrea"
+    key_name = "audreapublickey"
+  }
+}
