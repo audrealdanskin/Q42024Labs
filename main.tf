@@ -10,11 +10,11 @@ terraform {
 provider "equinix" {
   # Configuration options 
   # Credentials for only Equinix Metal resources 
-  auth_token = "R8EyN5HRLSS6DXFtxbV1PiPoePGRDxj5"
+  auth_token = "my_auth_token"
 
-  client_id = "qJtGqyZlA3ASLtYdYBxqyiQsyjXfcLInssz9AFni4cVpjnZA"
+  client_id = "my_client_id"
 
-  client_secret = "UalIsqdYhqhdA9tR6CoZ9MAT82upXR1JQuSZvpdusUC6UpnmozDfvolQpkVwueDM"
+  client_secret = "my_client_secret"
 }
 
 #specs of server and machine  
@@ -24,7 +24,7 @@ resource "equinix_metal_device" "test1" {
   metro            = "da"
   operating_system = "ubuntu_20_04"
   billing_cycle    = "hourly"
-  project_id       = "ef6702ca-87d4-4a9d-96ee-6839c1efdf42"
+  project_id       = "my_project_id"
 }
 
 resource "equinix_metal_device" "test2" {
@@ -33,20 +33,20 @@ resource "equinix_metal_device" "test2" {
   metro            = "dc"
   operating_system = "ubuntu_20_04"
   billing_cycle    = "hourly"
-  project_id       = "ef6702ca-87d4-4a9d-96ee-6839c1efdf42"
+  project_id       = "my_project_id"
 }
 
 resource "equinix_metal_vlan" "vlan1" {
   description = "VLAN in Dallas"
   metro       = "da"
-  project_id  = "ef6702ca-87d4-4a9d-96ee-6839c1efdf42"
+  project_id  = "my_project_id"
   vxlan       = "812"
 }
 
 resource "equinix_metal_vlan" "vlan2" {
   description = "VLAN in Washington"
   metro       = "dc"
-  project_id  = "ef6702ca-87d4-4a9d-96ee-6839c1efdf42"
+  project_id  = "my_project_id"
   vxlan       = "812"
 
 }
@@ -74,13 +74,13 @@ resource "equinix_metal_port_vlan_attachment" "test2" {
 }
 
 resource "equinix_metal_vlan" "vlan1000" {
-  project_id = "ef6702ca-87d4-4a9d-96ee-6839c1efdf42"
+  project_id = "my_project_id"
   metro      = "DA"
 }
 
 resource "equinix_metal_connection" "audreametal2" {
   name               = "tf-metal-from-port"
-  project_id         = "ef6702ca-87d4-4a9d-96ee-6839c1efdf42"
+  project_id         = "my_project_id"
   type               = "shared"
   redundancy         = "primary"
   metro              = "DA"
@@ -96,14 +96,7 @@ resource "equinix_metal_connection" "audreametal2" {
 resource "equinix_network_acl_template" "myacl" {
   name        = "audreaq4acl"
   description = "myacl ACL template"
-  project_id  = "f1a596ed-d24a-497c-92a8-44e0923cee62"
-  inbound_rule {
-    subnet      = "0.0.0.0/0"
-    protocol    = "IP"
-    src_port    = "any"
-    dst_port    = "any"
-    description = "inbound rule description"
-  }
+  project_id  = "my_project_id"
   inbound_rule {
     subnet   = "147.28.136.125/32"
     protocol = "IP"
@@ -135,7 +128,7 @@ resource "equinix_network_device" "audrealabda" {
   core_count           = 2
   term_length          = 1
   additional_bandwidth = 5
-  acl_template_id      = "77a6a704-7296-45d8-b081-f3cdd363e640"
+  acl_template_id      = "my_acl_id"
 
   ssh_key {
     username = "audrea"
@@ -157,7 +150,7 @@ resource "equinix_network_device" "audrealabdc" {
   core_count           = 2
   term_length          = 1
   additional_bandwidth = 5
-  acl_template_id      = "77a6a704-7296-45d8-b081-f3cdd363e640"
+  acl_template_id      = "my_acl_id"
 
   ssh_key {
     username = "audrea"
@@ -166,7 +159,7 @@ resource "equinix_network_device" "audrealabdc" {
 }
 resource "equinix_network_device_link" "audreadlg" { 
 name   = "test-link"
-project_id  = "f1a596ed-d24a-497c-92a8-44e0923cee62"
+project_id  = "my_project_id"
 device { 
 id        = equinix_network_device.audrealabda.uuid
 interface_id = 4
