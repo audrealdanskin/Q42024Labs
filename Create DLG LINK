@@ -1,7 +1,7 @@
 }
 resource "equinix_network_device_link" "audreadlg" { 
 name   = "test-link"
-project_id  = "f1a596ed-d24a-12345678-91011213-1415162233"
+project_id  = "my_project_id"
 device { 
 id        = equinix_network_device.audrealabda.uuid
 interface_id = 4
