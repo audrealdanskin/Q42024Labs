@@ -18,27 +18,6 @@ provider "equinix" {
 }
 
 
-# Creates ACL template and assigns it to the network device
-
-resource "equinix_network_acl_template" "myacl" {
-  name        = "audreaq4acl"
-  description = "myacl ACL template"
-  project_id  = "my_project_id"
-  inbound_rule {
-    subnet   = "140.28.136.125/32"
-    protocol = "IP"
-    src_port = "any"
-    dst_port = "any"
-  }
-
-  inbound_rule {
-    subnet   = "172.28.224.153/32"
-    protocol = "TCP"
-    src_port = "any"
-    dst_port = "any"
-  }
-}
-
 # Create self configured single Catalyst 8000V (Autonomous Mode) router with license token
 
 resource "equinix_network_device" "audrealabda" {
