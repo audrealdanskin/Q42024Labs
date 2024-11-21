@@ -96,7 +96,7 @@ id       = equinix_network_device.audrealabdc.uuid
 interface_id = 4
 }
 link {
-    account_number  = 1
+    account_number  =  1_gjhbe%6
     src_metro_code  = equinix_network_device.audrealabda.metro_code
     dst_metro_code  = equinix_network_device.audrealabdc.metro_code
     throughput      = "50"
