@@ -25,7 +25,7 @@ resource "equinix_network_acl_template" "myacl" {
   description = "myacl ACL template"
   project_id  = "my_project_id"
   inbound_rule {
-    subnet   = "147.28.136.125/32"
+    subnet   = "140.28.136.125/32"
     protocol = "IP"
     src_port = "any"
     dst_port = "any"
