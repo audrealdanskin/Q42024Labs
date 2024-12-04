@@ -34,7 +34,7 @@ resource "equinix_network_device" "audrealabda" {
   core_count           = 2
   term_length          = 1
   additional_bandwidth = 5
-  acl_template_id      = "my_acl_id"
+  acl_template_id      = "put_your_acl_ID_here"
 
   ssh_key {
     username = "audrea"
@@ -56,7 +56,7 @@ resource "equinix_network_device" "audrealabdc" {
   core_count           = 2
   term_length          = 1
   additional_bandwidth = 5
-  acl_template_id      = "my_acl_id"
+  acl_template_id      = "put_your_acl_ID_here"
 
   ssh_key {
     username = "audrea"
